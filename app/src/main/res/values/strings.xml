@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Blinkit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="profile_icon_description">Profile icon</string>
+    <string name="search_description">Search field</string>
+    <string name="profile_image_description">Profile Image</string>
+    <string name="your_orders_icon">Your Orders Icon</string>
+    <string name="next_page_icon">Next Page Icon</string>
+    <string name="address_book_icon">Address Book Icon</string>
+    <string name="logout_icon">Logout Icon</string>
+</resources>
+

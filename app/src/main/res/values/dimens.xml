@@ -1,0 +1,5 @@
+<!-- res/values/dimens.xml -->
+<resources>
+    <dimen name="_380sdp">380dp</dimen>
+    <dimen name="_450sdp">450dp</dimen>
+</resources>
