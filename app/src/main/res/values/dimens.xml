@@ -2,4 +2,8 @@
 <resources>
     <dimen name="_380sdp">380dp</dimen>
     <dimen name="_450sdp">450dp</dimen>
+    <style name="RoundedImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
 </resources>

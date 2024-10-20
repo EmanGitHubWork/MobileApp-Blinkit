@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".CategoriesFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="180dp"
         android:background="@drawable/app_bar_custom_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,72 +119,113 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="230dp">
+            android:layout_marginTop="200dp">
 
+            <!-- Grocery and Kitchen Category -->
             <LinearLayout
-                android:id="@+id/bestsellers"
-                android:layout_width="match_parent"
+                android:id="@+id/categorylist1"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Best Sellers"
-                    android:textColorHint="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal"
-                android:layout_marginHorizontal="6dp"
-                android:visibility="visible"
-                app:layout_constraintTop_toBottomOf="@id/bestsellers"
-                app:layout_constraintBottom_toTopOf="@id/categorylist"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-            <LinearLayout
-                android:id="@+id/categorylist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recyclerView">
-
-                <TextView
+                    android:id="@+id/categorytext1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Shop By Category"
+                    android:hint="Grocery and Kitchen"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:textColorHint="@color/black"/>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewCat"
-                android:layout_width="match_parent"
+                android:id="@+id/rvCategory1"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_marginHorizontal="6dp"
-                app:layout_constraintTop_toBottomOf="@id/categorylist"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="1dp"
+                app:layout_constraintTop_toBottomOf="@id/categorylist1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="4" />
+
+            <!-- Snacks and Drinks Category -->
+            <LinearLayout
+                android:id="@+id/categorylist2"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvCategory1">
+
+                <TextView
+                    android:id="@+id/categorytext2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Snacks and Drinks"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/black"/>
+            </LinearLayout>
+
+            <!-- Beauty -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategory2"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginHorizontal="1dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categorylist2"
+                app:layout_constraintVertical_bias="0.0"
+                app:spanCount="4" />
+
+            <LinearLayout
+                android:id="@+id/categorylist3"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvCategory2">
+
+                <TextView
+                    android:id="@+id/categorytext3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Beauty"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/black"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategory3"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginHorizontal="1dp"
+                app:layout_constraintTop_toBottomOf="@id/categorylist3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="4" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

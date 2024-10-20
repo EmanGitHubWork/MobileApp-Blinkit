@@ -10,5 +10,13 @@
     <string name="next_page_icon">Next Page Icon</string>
     <string name="address_book_icon">Address Book Icon</string>
     <string name="logout_icon">Logout Icon</string>
+    <string name="nested_scroll_view_description">Description</string>
+    <string name="in_ten_minutes_text">desc</string>
+    <string name="blinkit_text">desc</string>
+    <string name="toolbar">desc</string>
+    <string name="vegetables_and_fruits_description">Text describing Vegetables and Fruits</string>
+    <string name="product_image_description">desc</string>
+    <string name="product_name_description">desc</string>
+    <string name="product_price_description">desc</string>
 </resources>
 

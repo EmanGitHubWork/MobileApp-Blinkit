@@ -19,7 +19,7 @@
             <ImageView
                 android:id="@+id/ivLoginImage"
                 android:layout_width="411dp"
-                android:layout_height="357dp"
+                android:layout_height="398dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/all_prod" />
 
