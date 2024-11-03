@@ -40,7 +40,6 @@
             android:layout_width="78dp"
             android:layout_height="wrap_content"
             android:maxLines="2"
-
             android:ellipsize="end"
             android:textSize="14.00sp"
             android:textColor="@color/black"
@@ -77,9 +76,55 @@
                 android:minWidth="48dp"
                 android:minHeight="48dp"
                 android:text="Add"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
-        </LinearLayout>
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
+            <LinearLayout
+                android:visibility="visible"
+            android:id="@+id/llproductcount"
+            android:layout_width="60dp"
+                android:background="@color/green"
+            android:layout_height="30dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tvdecrementcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="19.50dp"
+                />
+
+            <TextView
+                android:id="@+id/tvproductcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="19.50dp"
+                />
+
+            <TextView
+                android:id="@+id/tvincrementcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="19.50dp"
+                />
+        </LinearLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

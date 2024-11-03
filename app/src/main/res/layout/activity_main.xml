@@ -21,13 +21,121 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp" />
 
+    <LinearLayout
+        android:id="@+id/llcart"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="72dp"
+        android:background="@color/green"
+        android:padding="10.00dp"
+        android:weightSum="1"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/llItemcart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivproductimage"
+                android:layout_width="39.00dp"
+                android:layout_height="39.00dp"
+                android:padding="3.90dp"
+                android:src="@drawable/cart" />
+
+            <TextView
+                android:id="@+id/tvnumberofproductcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="13.00dp"
+                android:contentDescription="@string/blinkit_text"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="18.20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="2.60dp"
+                android:text="Item"
+                android:textColor="@color/white"
+                android:textSize="18.20sp" />
+
+            <ImageButton
+                android:id="@+id/ivshoppingproductcart"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16.50dp"
+                android:background="@color/white"
+                android:contentDescription="Shopping cart"
+                android:padding="10dp"
+                android:src="@drawable/baseline_arrow_drop_up_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnnext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:background="@color/green"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvadd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/blinkit_text"
+                android:layout_marginStart="35dp"
+                android:text="Next"
+                android:textColor="@android:color/white"
+                android:textSize="18.20sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="6.50dp"
+                android:background="@color/white"
+                android:contentDescription="Next item"
+                android:padding="10dp"
+                android:src="@drawable/baseline_arrow_right_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:stepSize="1"
+        android:value="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llcart"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slider"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

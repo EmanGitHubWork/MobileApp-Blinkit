@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
 import com.example.blinkit.adapters.AdapterCategory
 import com.example.blinkit.databinding.FragmentCategoriesBinding
 import com.example.blinkit.models.Category
 
 class CategoriesFragment : Fragment() {
     private lateinit var binding: FragmentCategoriesBinding
+    private var isBottomNavVisible = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,11 +23,11 @@ class CategoriesFragment : Fragment() {
         binding = FragmentCategoriesBinding.inflate(layoutInflater, container, false)
         setStatusBarColor()
         setupCategoryRecyclerViews()
+        setScrollListener()
         return binding.root
     }
 
     private fun setupCategoryRecyclerViews() {
-        // Setup RecyclerView for Grocery Category
         val groceryCategoryList = ArrayList<Category>()
         for (i in constraints.groceryCategory.indices) {
             groceryCategoryList.add(Category(constraints.groceryCategory[i], constraints.groceryCategoryIcon[i]))
@@ -35,7 +37,6 @@ class CategoriesFragment : Fragment() {
         }
         binding.rvCategory1.adapter = groceryCategoryAdapter
 
-        // Setup RecyclerView for Snacks Category
         val snacksCategoryList = ArrayList<Category>()
         for (i in constraints.snacksCategory.indices) {
             snacksCategoryList.add(Category(constraints.snacksCategory[i], constraints.snacksCategoryIcon[i]))
@@ -45,8 +46,6 @@ class CategoriesFragment : Fragment() {
         }
         binding.rvCategory2.adapter = snacksCategoryAdapter
 
-
-        // Setup RecyclerView for Beauty Category
         val beautyCategoryList = ArrayList<Category>()
         for (i in constraints.beautyCategory.indices) {
             beautyCategoryList.add(Category(constraints.beautyCategory[i], constraints.beautyCategoryIcon[i]))
@@ -58,8 +57,6 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun onCategoryClicked(category: Category) {
-        // Handle category click here
-        // For now, just print the category name or show a Toast
         println("Clicked on category: ${category.title}")
     }
 
@@ -71,5 +68,21 @@ class CategoriesFragment : Fragment() {
                 decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }
         }
+    }
+
+    private fun setScrollListener() {
+        val bottomNavigationView = activity?.findViewById<View>(R.id.bottom_navigation)
+
+        binding.yourScrollView.setOnScrollChangeListener(
+            NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+                if (scrollY > oldScrollY && isBottomNavVisible) {
+                    bottomNavigationView?.visibility = View.GONE
+                    isBottomNavVisible = false
+                } else if (scrollY < oldScrollY && !isBottomNavVisible) {
+                    bottomNavigationView?.visibility = View.VISIBLE
+                    isBottomNavVisible = true
+                }
+            }
+        )
     }
 }

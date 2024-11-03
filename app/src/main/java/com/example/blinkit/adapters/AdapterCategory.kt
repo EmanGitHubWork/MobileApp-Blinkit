@@ -8,7 +8,7 @@ import com.example.blinkit.models.Category
 
 class AdapterCategory(
     private val categoryList: List<Category>,
-    private val onCategoryClicked: (Category) -> Unit
+    private val OnCategoryIconClick: (Category) -> Unit
 ) : RecyclerView.Adapter<AdapterCategory.CategoryViewHolder>() {
 
     inner class CategoryViewHolder(val binding: ItemViewProductCategoryBinding) : RecyclerView.ViewHolder(binding.root)
@@ -24,10 +24,12 @@ class AdapterCategory(
             ivcategoryimage.setImageResource(category.image) // assuming category.image is a drawable resource ID
             ivcategorytext.text = category.title
 
-            root.setOnClickListener {
-                onCategoryClicked(category)
+            holder.itemView.setOnClickListener{
+                OnCategoryIconClick(category)
             }
+
         }
+
     }
 
     override fun getItemCount(): Int = categoryList.size

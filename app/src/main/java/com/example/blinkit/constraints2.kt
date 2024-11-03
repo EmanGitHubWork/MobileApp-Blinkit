@@ -65,27 +65,35 @@ object constraints2 {
     )
 
     val image1 = arrayOf(
-        R.drawable.eno,
-        R.drawable.hearts,
-        R.drawable.kitkat,
-        R.drawable.lemon
+        R.drawable.potato,
+        R.drawable.kurkure,
+        R.drawable.waterbisleri,
+        R.drawable.ice1,
+        R.drawable.dairy_breakfast,
+        R.drawable.sweet_tooth
     )
     val image2 = arrayOf(
-        R.drawable.eno,
-        R.drawable.hearts,
-        R.drawable.kitkat,
-        R.drawable.lemon
+        R.drawable.lemon,
+        R.drawable.kurkure,
+        R.drawable.cold_and_juices,
+        R.drawable.ice2,
+        R.drawable.amul,
+        R.drawable.kitkat
     )
     val image3 = arrayOf(
-        R.drawable.eno,
-        R.drawable.hearts,
-        R.drawable.kitkat,
-        R.drawable.lemon
+        R.drawable.onions,
+        R.drawable.kurkure,
+        R.drawable.juice1,
+        R.drawable.ice3,
+        R.drawable.milk,
+        R.drawable.hearts
     )
     val image4 = arrayOf(
-        R.drawable.eno,
-        R.drawable.hearts,
-        R.drawable.kitkat,
-        R.drawable.lemon
+        R.drawable.potato,
+        R.drawable.kurkure,
+        R.drawable.juice2,
+        R.drawable.ice4,
+        R.drawable.milk2,
+        R.drawable.sweet
     )
 }

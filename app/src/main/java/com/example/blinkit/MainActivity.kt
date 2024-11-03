@@ -1,19 +1,23 @@
 package com.example.blinkit
 
 import android.os.Bundle
-import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.google.android.material.slider.Slider
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var bottomNavigationView: BottomNavigationView
-    private var isBottomNavVisible = true
+    private lateinit var cartLayout: LinearLayout
+    private lateinit var tvnumberofproductcount: TextView // TextView for the cart item count
+    private lateinit var slider: Slider
+    private var totalCartItems = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,33 +30,44 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
 
+        cartLayout = findViewById(R.id.llcart)
+        tvnumberofproductcount = findViewById(R.id.tvnumberofproductcount)
+        slider = findViewById(R.id.slider)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            // Show the BottomNavigationView for specific fragments
             when (destination.id) {
                 R.id.newHome_Fragment, R.id.orderAgainFragment, R.id.categoriesFragment -> {
                     bottomNavigationView.visibility = View.VISIBLE
+                    if (shouldShowCart) {
+                        cartLayout.visibility = View.VISIBLE
+                    }
                 }
                 else -> {
                     bottomNavigationView.visibility = View.GONE
+                    cartLayout.visibility = View.GONE
                 }
             }
         }
 
-        val mainLayout = findViewById<ConstraintLayout>(R.id.main)
-        mainLayout.setOnTouchListener { _, event ->
-            if (event?.action == MotionEvent.ACTION_DOWN) {
-                toggleBottomNavigationView()
-            }
-            true
+        slider.addOnChangeListener { _, value, _ ->
+            updateCart(value.toInt())
         }
     }
 
-    private fun toggleBottomNavigationView() {
-        if (isBottomNavVisible) {
-            bottomNavigationView.visibility = View.GONE
+    private var shouldShowCart = false
+
+    fun showCart() {
+        shouldShowCart = true
+        cartLayout.visibility = View.VISIBLE
+    }
+
+    fun updateCart(count: Int) {
+        totalCartItems = count
+        tvnumberofproductcount.text = totalCartItems.toString()
+        if (totalCartItems > 0) {
+            showCart()
         } else {
-            bottomNavigationView.visibility = View.VISIBLE
+            cartLayout.visibility = View.GONE
         }
-        isBottomNavVisible = !isBottomNavVisible
     }
 }

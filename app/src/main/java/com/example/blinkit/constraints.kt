@@ -43,6 +43,20 @@ object constraints {
         R.drawable.pet_care,
     )
 
+
+    val vegetableProducts = listOf(
+        Product("Tomato", R.drawable.vegetable, "1.99" ,"₹400" ),
+        Product("Cucumber", R.drawable.vegetable, "1.99" ,"₹400")
+    )
+
+    val dairyProducts = listOf(
+        Product("Milk", R.drawable.milk, "1.99" ,"₹400"),
+        Product("Cheese", R.drawable.milk, "1.99" ,"₹400")
+    )
+
+
+
+
     val groceryCategory = arrayOf(
         "Vegetable & Fruits",
         "Dairy & Breakfast",
@@ -83,15 +97,5 @@ object constraints {
         R.drawable.cosmetics
     )
 
-    val productsByCategory: Map<String, List<Product>> = mapOf(
-        "Vegetable & Fruits" to listOf(
-            Product(R.drawable.vegetable, "Potatoes", "$2"),
-            Product(R.drawable.vegetable, "Tomatoes", "$3")
-        ),
-        "Dairy & Breakfast" to listOf(
-            Product(R.drawable.dairy_breakfast, "Milk", "$1"),
-            Product(R.drawable.dairy_breakfast, "Eggs", "$2")
-        )
-        // Add products for other categories in a similar manner
-    )
+
 }

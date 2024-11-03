@@ -2,22 +2,23 @@ package com.example.blinkit
 
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.blinkit.adapters.AdapterCategory
-import com.example.blinkit.adapters.AdapterCategory2
 import com.example.blinkit.adapters.AdapterCategory3
-import com.example.blinkit.adapters.AdapterProduct
 import com.example.blinkit.databinding.FragmentNewHomeBinding
 import com.example.blinkit.models.Category
 import com.example.blinkit.models.Category3
-import com.example.blinkit.models.Product
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NewHomeFragment : Fragment() {
     private lateinit var binding: FragmentNewHomeBinding
+    private var isBottomNavVisible = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,19 +28,22 @@ class NewHomeFragment : Fragment() {
         setStatusBarColor()
         setAllBestSellers()
         setAllCategories()
-        setProfileImageClickListener() // Add this line
+        setProfileImageClickListener()
+        setScrollListener() // Add scroll listener
         return binding.root
     }
 
     private fun setAllBestSellers() {
         val categoryList = ArrayList<Category3>()
-        for (i in constraints2.bestSeller.indices) {
-            categoryList.add(Category3(
-                constraints2.bestSeller[i],
-                constraints2.image1[i],
-                constraints2.image2[i],
-                constraints2.image3[i],
-                constraints2.image4[i])
+        for (i in constraints2.image1.indices) {
+            categoryList.add(
+                Category3(
+                    constraints2.bestSeller[i],
+                    constraints2.image1[i],
+                    constraints2.image2[i],
+                    constraints2.image3[i],
+                    constraints2.image4[i]
+                )
             )
         }
 
@@ -50,45 +54,26 @@ class NewHomeFragment : Fragment() {
         binding.recyclerView.adapter = groceryCategoryAdapter
     }
 
-
-
-
-
     private fun setAllCategories() {
         val categoryList = ArrayList<Category>()
         for (i in constraints.allProductsCategoryIcon.indices) {
             categoryList.add(Category(constraints.allProductsCategory[i], constraints.allProductsCategoryIcon[i]))
         }
-        val categoryAdapter = AdapterCategory(categoryList) { category ->
-            showProductsForCategory(category)
+
+        binding.rvCategory.adapter = AdapterCategory(categoryList, ::OnCategoryIconClick)
+    }
+
+    private fun OnCategoryIconClick(category: Category) {
+        val bundle = Bundle().apply {
+            putString("category", category.title)
         }
-        binding.rvCategory.adapter = categoryAdapter
+        findNavController().navigate(R.id.action_newHome_Fragment_to_categoryProductFragment, bundle)
     }
 
     private fun setProfileImageClickListener() {
         binding.ivProfile.setOnClickListener {
-            // Navigate to ProfileFragment
-            val profileFragment = ProfileFragment()
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.tbProfileFragment, profileFragment) // Use your container ID
-                .addToBackStack(null)
-                .commit()
+            findNavController().navigate(R.id.action_newHome_Fragment_to_profileFragment)
         }
-    }
-
-
-
-    private fun showProductsForCategory(category: Category) {
-        // Hide the category list and bestsellers
-        binding.rvCategory.visibility = View.GONE
-        binding.bestsellers.visibility = View.GONE
-        binding.categorytext.visibility=View.GONE
-        // Show the products of the selected category
-        val productList = constraints.productsByCategory[category.title] ?: emptyList()
-        binding.recyclerView.adapter = AdapterProduct(productList)
-
-        // Set the RecyclerView to be visible
-        binding.recyclerView.visibility = View.VISIBLE
     }
 
     private fun setStatusBarColor() {
@@ -99,5 +84,22 @@ class NewHomeFragment : Fragment() {
                 decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }
         }
+    }
+
+
+
+    private fun setScrollListener() {
+        binding.yourScrollView.setOnScrollChangeListener(
+            NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+                val bottomNavigationView = activity?.findViewById<View>(R.id.bottom_navigation)
+                if (scrollY > oldScrollY && isBottomNavVisible) {
+                    bottomNavigationView?.visibility = View.GONE
+                    isBottomNavVisible = false
+                } else if (scrollY < oldScrollY && !isBottomNavVisible) {
+                    bottomNavigationView?.visibility = View.VISIBLE
+                    isBottomNavVisible = true
+                }
+            }
+        )
     }
 }
