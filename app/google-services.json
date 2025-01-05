@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "551272296795",
+    "project_id": "kotlinblinkit",
+    "storage_bucket": "kotlinblinkit.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551272296795:android:2a6d73fa3b2565bc8d6a7e",
+        "android_client_info": {
+          "package_name": "com.example.blinkit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsi_VhoD22VT6GFq1N2znel3Wx_QoZOdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

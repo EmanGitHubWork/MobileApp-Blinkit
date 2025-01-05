@@ -18,6 +18,7 @@
             app:destination="@id/signInFragment"
             app:popUpTo="@id/splashFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.blinkit.SignInFragment"
@@ -53,17 +54,31 @@
         <action
             android:id="@+id/action_newHome_Fragment_to_categoryProductFragment"
             app:destination="@id/categoryProductFragment" />
+        <action
+            android:id="@+id/action_newHome_Fragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/orderAgainFragment"
         android:name="com.example.blinkit.OrderAgainFragment"
         android:label="fragment_order_again"
-        tools:layout="@layout/fragment_order_again" />
+        tools:layout="@layout/fragment_order_again" >
+        <action
+            android:id="@+id/action_orderAgainFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+
+    </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
         android:name="com.example.blinkit.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
@@ -75,10 +90,37 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_otpFragment"
+            app:destination="@id/OTP_Fragment" />
     </fragment>
     <fragment
         android:id="@+id/categoryProductFragment"
         android:name="com.example.blinkit.CategoryProductFragment"
         android:label="fragment_category_product"
-        tools:layout="@layout/fragment_category_product" />
+        tools:layout="@layout/fragment_category_product" >
+        <action
+            android:id="@+id/action_categoryProductFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.blinkit.CartFragment"
+        android:label="CartFragment">
+        <action
+            android:id="@+id/action_cartFragment_to_orderplaceFragment"
+            app:destination="@id/orderplaceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderplaceFragment"
+        android:name="com.example.blinkit.OrderplaceFragment"
+        android:label="OrderplaceFragment"
+       >
+        <action
+            android:id="@+id/action_orderplaceFragment_to_newHome_Fragment"
+            app:destination="@id/newHome_Fragment" />
+
+    </fragment>
+
 </navigation>

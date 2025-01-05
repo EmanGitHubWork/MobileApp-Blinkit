@@ -18,5 +18,7 @@
     <string name="product_image_description">desc</string>
     <string name="product_name_description">desc</string>
     <string name="product_price_description">desc</string>
+    <string name="total_bill">Total Bill: $%.2f</string>
+
 </resources>
 

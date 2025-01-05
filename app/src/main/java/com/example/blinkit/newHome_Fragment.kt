@@ -70,11 +70,15 @@ class NewHomeFragment : Fragment() {
         findNavController().navigate(R.id.action_newHome_Fragment_to_categoryProductFragment, bundle)
     }
 
+
+
     private fun setProfileImageClickListener() {
         binding.ivProfile.setOnClickListener {
             findNavController().navigate(R.id.action_newHome_Fragment_to_profileFragment)
         }
     }
+
+
 
     private fun setStatusBarColor() {
         activity?.window?.apply {

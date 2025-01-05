@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -34,12 +35,17 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures{
+
         viewBinding = true
     }
 }
 
 dependencies {
-
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.google.firebase:firebase-database:20.2.3")
+    implementation("org.osmdroid:osmdroid-android:6.1.11")
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.8.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -47,10 +53,19 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
 
+    implementation ("com.google.firebase:firebase-auth-ktx:23.1.0")
+
+    implementation ("com.google.firebase:firebase-auth:23.1.0")
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth)
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    implementation(libs.firebase.firestore.ktx)
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 
 
 

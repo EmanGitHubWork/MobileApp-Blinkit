@@ -29,140 +29,143 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="160dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view"
-        android:layout_margin="10dp">
+        app:layout_constraintTop_toBottomOf="@id/view">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="My Account"
             android:textColor="@color/black"
             android:textSize="23sp"
-            android:textStyle="bold"
-            android:layout_marginTop="13dp"
-            android:text="My Account" />
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvProfilePhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6.5dp"
+            android:text="9999999999"
             android:textColor="@color/black"
-            android:textSize="19sp"
-            android:layout_marginTop="6.5dp"
-            android:text="9999999999" />
+            android:textSize="19sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#6B6C74"
-            android:textSize="15sp"
             android:layout_marginTop="6.5dp"
-            android:text="YOUR INFORMATION" />
+            android:text="YOUR INFORMATION"
+            android:textColor="#6B6C74"
+            android:textSize="15sp" />
 
         <LinearLayout
             android:id="@+id/llOrders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1"
+            android:layout_marginTop="13dp"
             android:orientation="horizontal"
-            android:layout_marginTop="13dp">
+            android:weightSum="1">
 
             <ImageView
                 android:layout_width="42dp"
                 android:layout_height="42dp"
+                android:layout_marginTop="6.5dp"
                 android:contentDescription="@string/your_orders_icon"
-                android:src="@drawable/order_icon"
-                android:layout_marginTop="6.5dp" />
+                android:src="@drawable/order_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#6B6C74"
-                android:textSize="23sp"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="13dp"
-                android:text="Your Orders" />
+                android:gravity="center"
+                android:text="Your Orders"
+                android:textColor="#6B6C74"
+                android:textSize="23sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:contentDescription="@string/next_page_icon"
-                android:src="@drawable/next_page"
+                android:layout_marginLeft="155.5dp"
                 android:layout_marginTop="15.5dp"
-                android:layout_marginLeft="155.5dp" />
+                android:contentDescription="@string/next_page_icon"
+                android:src="@drawable/next_page" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llAddressBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1"
+            android:layout_marginTop="13dp"
             android:orientation="horizontal"
-            android:layout_marginTop="13dp">
+            android:weightSum="1">
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_marginTop="6.5dp"
                 android:contentDescription="@string/address_book_icon"
-                android:src="@drawable/new_address"
-                android:layout_marginTop="6.5dp" />
+                android:src="@drawable/new_address" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#6B6C74"
-                android:textSize="23sp"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="13dp"
-                android:text="Address Book" />
+                android:gravity="center"
+                android:text="Address Book"
+                android:textColor="#6B6C74"
+                android:textSize="23sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:contentDescription="@string/next_page_icon"
-                android:src="@drawable/next_page"
+                android:layout_marginLeft="130.5dp"
                 android:layout_marginTop="15.5dp"
-                android:layout_marginLeft="130.5dp" />
+                android:contentDescription="@string/next_page_icon"
+                android:src="@drawable/next_page" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1"
+            android:layout_marginTop="13dp"
             android:orientation="horizontal"
-            android:layout_marginTop="13dp">
+            android:weightSum="1">
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_marginTop="6.5dp"
                 android:contentDescription="@string/logout_icon"
-                android:src="@drawable/log_out"
-                android:layout_marginTop="6.5dp" />
+                android:src="@drawable/log_out" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#6B6C74"
-                android:textSize="23sp"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="13dp"
-                android:text="Log Out" />
+                android:gravity="center"
+                android:text="Log Out"
+                android:textColor="#6B6C74"
+                android:textSize="23sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:contentDescription="@string/next_page_icon"
-                android:src="@drawable/next_page"
+                android:layout_marginLeft="195dp"
                 android:layout_marginTop="15.5dp"
-                android:layout_marginLeft="195dp" />
+                android:contentDescription="@string/next_page_icon"
+                android:src="@drawable/next_page" />
         </LinearLayout>
 
     </LinearLayout>
